@@ -1,13 +1,11 @@
 import os
 from telethon import TelegramClient, events
 
-# Получаем api_id и api_hash из переменных окружения
-api_id = os.getenv('29266838') # Получаем из переменной окружения и преобразуем в int
-api_hash = os.getenv('682fed56429bcc3db215c0ee7e34ec2d')   # Получаем из переменной окружения
+# Получаем данные из переменных окружения
+api_id = int(os.getenv("29266838"))
+api_hash = os.getenv("682fed56429bcc3db215c0ee7e34ec2d")
 
-print("API ID:", api_id)  # Печать значений переменных для проверки
-print("API Hash:", api_hash)
-
+# Создание клиента Telethon
 client = TelegramClient('auto_session', api_id, api_hash)
 
 @client.on(events.NewMessage(incoming=True))
@@ -18,4 +16,3 @@ async def handler(event):
 client.start()
 print("🤖 Автоответчик запущен. Ожидает сообщений...")
 client.run_until_disconnected()
-
