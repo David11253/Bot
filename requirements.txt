@@ -1,3 +1,2 @@
-telethon
-asyncio
-os
+telethon==1.40.0
+asyncio==3.4.3
