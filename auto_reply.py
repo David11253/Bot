@@ -2,8 +2,8 @@ import os
 from telethon import TelegramClient, events
 
 # Получаем значения из переменных окружения
-api_id = int(os.getenv("API_ID"))
-api_hash = os.getenv("API_HASH")
+api_id = 29266838
+api_hash = "682fed56429bcc3db215c0ee7e34ec2d"
 
 client = TelegramClient('auto_session', api_id, api_hash)
 
