@@ -1,16 +1,22 @@
 from telethon import TelegramClient, events
 
-api_id = 29266838 # замени на своё
-api_hash = '682fed56429bcc3db215c0ee7e34ec2d'  # замени на своё
+# 🔐 Твои данные (заменены на реальные)
+api_id = 29266838
+api_hash = '682fed56429bcc3db215c0ee7e34ec2d'
 
-client = TelegramClient('auto_session', api_id, api_hash)
+# 👤 Имя файла сессии (ты загружаешь его сам в GitHub)
+client = TelegramClient("auto_session", api_id, api_hash)
 
-@client.on(events.NewMessage(incoming=True))
+@client.on(events.NewMessage)
 async def handler(event):
-    if event.is_private:  # только личные сообщения
-        await event.reply("Привет! Это автоответчик, я отвечаю всем автоматически 😊")
+    if event.is_private:
+        await event.respond("Привет! Я занят!")
 
-client.start()
-print("Бот запущен и ждёт сообщений...")
-client.run_until_disconnected()
+async def main():
+    await client.start()
+    print("✅ Бот запущен и ждёт сообщений...")
+    await client.run_until_disconnected()
 
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(main())
